@@ -1,0 +1,37 @@
+name: RSS to X
+
+on:
+  schedule:
+    # 10分ごとに実行
+    - cron: "*/10 * * * *"
+  workflow_dispatch: # 手動実行も可能
+
+jobs:
+  rss-to-x:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # account: [riddle, hibino] # アカウント名を変更
+        account: [riddle] # アカウント名を変更
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: RSS to X (${{ matrix.account }})
+        uses: azu/rss-to-twitter@7e20a41d61766ec62ccee5629e964518b33aa87e
+        with:
+          # RSSフィードのURL
+          RSS_URL: "https://anchor.fm/s/105812508/podcast/rss"
+          # 投稿するテキストのテンプレート
+          TWEET_TEMPLATE: |
+            ポッドキャスト「ゆるITエンジニア道場」で「%title%」を公開しました！
+
+            🎧 %url%
+
+            #ゆるIT
+
+          # X API認証情報（アカウント別）
+          TWITTER_APIKEY: ${{ secrets[format('X_API_KEY_{0}', matrix.account)] }}
+          TWITTER_APIKEY_SECRET: ${{ secrets[format('X_API_SECRET_{0}', matrix.account)] }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets[format('X_ACCESS_TOKEN_{0}', matrix.account)] }}
+          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets[format('X_ACCESS_TOKEN_SECRET_{0}', matrix.account)] }}
