@@ -27,21 +27,21 @@ X Developer Portalでアプリケーションを作成し、以下の認証情�
 
 複数アカウントでの投稿に対応しています。各アカウントごとに以下のシークレットをGitHubリポジトリのSettings > Secrets and variables > Actionsで設定してください：
 
-#### riddle アカウント
+#### RIDDLE アカウント
 | シークレット名                 | 説明                  | 保存するデータ                                  |
 | ------------------------------ | --------------------- | ----------------------------------------------- |
-| `X_API_KEY_riddle`             | X API Key             | X Developer Portalで取得したAPI Key             |
-| `X_API_SECRET_riddle`          | X API Secret          | X Developer Portalで取得したAPI Secret          |
-| `X_ACCESS_TOKEN_riddle`        | X Access Token        | X Developer Portalで取得したAccess Token        |
-| `X_ACCESS_TOKEN_SECRET_riddle` | X Access Token Secret | X Developer Portalで取得したAccess Token Secret |
+| `X_API_KEY_RIDDLE`             | X API Key             | X Developer Portalで取得したAPI Key             |
+| `X_API_SECRET_RIDDLE`          | X API Secret          | X Developer Portalで取得したAPI Secret          |
+| `X_ACCESS_TOKEN_RIDDLE`        | X Access Token        | X Developer Portalで取得したAccess Token        |
+| `X_ACCESS_TOKEN_SECRET_RIDDLE` | X Access Token Secret | X Developer Portalで取得したAccess Token Secret |
 
-#### hibino アカウント
+#### HIBINO アカウント
 | シークレット名                 | 説明                  | 保存するデータ                                  |
 | ------------------------------ | --------------------- | ----------------------------------------------- |
-| `X_API_KEY_hibino`             | X API Key             | X Developer Portalで取得したAPI Key             |
-| `X_API_SECRET_hibino`          | X API Secret          | X Developer Portalで取得したAPI Secret          |
-| `X_ACCESS_TOKEN_hibino`        | X Access Token        | X Developer Portalで取得したAccess Token        |
-| `X_ACCESS_TOKEN_SECRET_hibino` | X Access Token Secret | X Developer Portalで取得したAccess Token Secret |
+| `X_API_KEY_HIBINO`             | X API Key             | X Developer Portalで取得したAPI Key             |
+| `X_API_SECRET_HIBINO`          | X API Secret          | X Developer Portalで取得したAPI Secret          |
+| `X_ACCESS_TOKEN_HIBINO`        | X Access Token        | X Developer Portalで取得したAccess Token        |
+| `X_ACCESS_TOKEN_SECRET_HIBINO` | X Access Token Secret | X Developer Portalで取得したAccess Token Secret |
 
 #### アカウント数の調整
 
@@ -50,7 +50,7 @@ X Developer Portalでアプリケーションを作成し、以下の認証情�
 ```yaml
 strategy:
   matrix:
-    account: [riddle, hibino] # アカウント名を変更
+    account: [RIDDLE, HIBINO] # アカウント名を変更
 ```
 
 ### 3. ワークフローの実行
