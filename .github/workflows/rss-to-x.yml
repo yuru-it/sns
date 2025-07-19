@@ -2,15 +2,13 @@ name: RSS to X
 
 on:
   schedule:
-    # Spotify の RSS がすぐに更新されるわけではないので毎時 30 分に実行し、
-    # その時点で最新のエピソードを取得する
-    - cron: "30 * * * *"
+    - cron: "25 14 * * *"
   workflow_dispatch:
     inputs:
       update_within_minutes:
         description: "UPDATE_WITHIN_MINUTES (手動実行用)"
         required: false
-        default: "10"
+        default: "120"
 
 jobs:
   rss-to-x:
