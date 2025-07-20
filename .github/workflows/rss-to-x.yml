@@ -2,7 +2,7 @@ name: RSS to X
 
 on:
   schedule:
-    - cron: "25 14 * * *"
+    - cron: "25 * * * *"
   workflow_dispatch:
     inputs:
       update_within_minutes:
@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: RSS to X (${{ matrix.account }})
-        uses: azu/rss-to-twitter@7e20a41d61766ec62ccee5629e964518b33aa87e
+        uses: lirlia/rss-to-twitter@e4700309bd0bf004256e08574045687624421580
         with:
           RSS_URL: "https://anchor.fm/s/105812508/podcast/rss"
           TWEET_TEMPLATE: |
@@ -36,3 +36,4 @@ jobs:
           TWITTER_APIKEY_SECRET: ${{ secrets[format('X_API_SECRET_{0}', matrix.account)] }}
           TWITTER_ACCESS_TOKEN: ${{ secrets[format('X_ACCESS_TOKEN_{0}', matrix.account)] }}
           TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets[format('X_ACCESS_TOKEN_SECRET_{0}', matrix.account)] }}
+          DELAY_MINUTES: 50
