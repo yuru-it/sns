@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: RSS to X (${{ matrix.account }})
-        uses: lirlia/rss-to-twitter@e4700309bd0bf004256e08574045687624421580
+        uses: lirlia/rss-to-twitter@v2.1.0
         with:
           RSS_URL: "https://anchor.fm/s/105812508/podcast/rss"
           TWEET_TEMPLATE: |
