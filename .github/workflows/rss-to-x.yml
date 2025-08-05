@@ -2,7 +2,7 @@ name: RSS to X
 
 on:
   schedule:
-    - cron: "25 * * * *"
+    - cron: "0 23 * * *"
   workflow_dispatch:
     inputs:
       update_within_minutes:
