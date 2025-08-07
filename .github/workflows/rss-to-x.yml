@@ -36,4 +36,4 @@ jobs:
           TWITTER_APIKEY_SECRET: ${{ secrets[format('X_API_SECRET_{0}', matrix.account)] }}
           TWITTER_ACCESS_TOKEN: ${{ secrets[format('X_ACCESS_TOKEN_{0}', matrix.account)] }}
           TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets[format('X_ACCESS_TOKEN_SECRET_{0}', matrix.account)] }}
-          DELAY_MINUTES: 50
+          DELAY_MINUTES: 1440
