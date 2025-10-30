@@ -15,11 +15,13 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: "scripts/publish_private_youtube/requirements.txt"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+          pip install -r scripts/publish_private_youtube/requirements.txt
 
       - name: Publish latest private videos
         env:
@@ -30,4 +32,4 @@ jobs:
           SKIP_SCHEDULED: true
           DRY_RUN: "false"  # "true" にすると変更せずログだけ
         run: |
-          python scripts/publish_private_youtube.py
+          python scripts/publish_private_youtube/main.py
